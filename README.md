@@ -74,12 +74,12 @@ class Apple {
   }
 }
 
-class Blackberry extends Apple {
+class Blackberry {
   public Blackberry() {
     System.out.println("Blackberry is created");
   }
 
-  public int getNumber() {
+  public static int getNumber() {
     return 4;
   }
 }
@@ -99,15 +99,22 @@ Blackberry is created
 ```
 
 #### Explain what you did, and answer the questions here:
-
+The actual output is an error message signaling that non-static method getnumber cannot be referenced. This is due to the fact that the method is called not on an instance of Blackberry (such as b), but the object itself. If getNumber was a static method it could have a return value even if Blackberry is uninstanciated.
+To get the supposed output, we have to either call getNumber on b, or make it a static method.
+However, there is one more problem. As Blackberry extends Apple, the message "Apple is created", is printed whenever a Blackberry is created.
+Thus, we have a number of options, we can either make Apple an abstract class or interface, so Blackberry would have to override Apple's constructor. Or not extend Apple with Blackberry. I would argue that this latter solution makes more semantical sense (With maybe both extending an abstract SmartPhone superclass.)
+My modifications can be seen in the code snippet above.
 
 ## 4. Question time! (~20 mins) [6p]
 
 ### Whats the difference between a Class and an Object? [2p]
 #### Your answer:
+A Class is the blueprints containig fields, constructors, getters and setters, and other methods (or possibly only an executable main method). While an Object is an instance of a class created and its fields assigned values by a constructor method.
 
 ### What is the superclass when a class doesnt extend anything? What methods will it inherit (the two most important is enough)? [2p]
 #### Your answer:
+The superclass will default to the Object class. It will inherit the following methods: clone(), equals(), finalize(), getClass(), hashCode(), toString().
 
 ### What is polymorphism? [2p]
 #### Your answer:
+Polymorphism is the ability of Objects in Java to take different forms depending on what methods are invoked on them. The most common example for this is when a parent class reference is used on a child class object.
