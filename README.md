@@ -99,9 +99,9 @@ Blackberry is created
 ```
 
 #### Explain what you did, and answer the questions here:
-The actual output is an error message signaling that non-static method getnumber cannot be referenced. This is due to the fact that the method is called not on an instance of Blackberry (such as b), but the object itself. If getNumber was a static method it could have a return value even if Blackberry is uninstanciated.
+The actual output is an error message signaling that non-static method `getNumber` cannot be referenced. This is due to the fact that the method is called not on an instance of Blackberry (such as b), but the object itself. If `getNumber` was a static method it could have a return value even if Blackberry is uninstanciated.
 
-To get the supposed output, we have to either call getNumber on b, or make it a static method.
+To get the supposed output, we have to either call `getNumber` on b, or make it a static method. (In this case I've done the latter)
 
 However, there is one more problem. As Blackberry extends Apple, the message "Apple is created", is printed whenever a Blackberry is created.
 
